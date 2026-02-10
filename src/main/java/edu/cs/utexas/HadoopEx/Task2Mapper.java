@@ -34,7 +34,8 @@ public class Task2Mapper extends Mapper<Text, Text, Text, IntWritable> {
 
   String[] cols = value.toString().split(",");
 
-		pq.add(new WordAndCount(new Text(cols[7]), new IntWritable(count)) );
+		pq.add(new WordAndCount(new Text(cols[7]), new IntWritable(
+Integer.parseInt(cols[7])));
 
 		if (pq.size() > 10) {
 			pq.poll();
