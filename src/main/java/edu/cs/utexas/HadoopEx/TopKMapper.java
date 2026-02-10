@@ -34,7 +34,7 @@ public class TopKMapper extends Mapper<Text, Text, Text, IntWritable> {
 
   String[] cols = value.toString().split(",");
 
-		pq.add(new WordAndCount(new Text(cols[7]), new IntWritable(count)) );
+		pq.add(new WordAndCount(new Text(cols[7]), new IntWritable(1)) );
 
 		if (pq.size() > 10) {
 			pq.poll();
