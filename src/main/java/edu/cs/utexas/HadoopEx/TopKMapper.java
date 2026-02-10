@@ -32,9 +32,10 @@ public class TopKMapper extends Mapper<Text, Text, Text, IntWritable> {
 	public void map(Text key, Text value, Context context)
 			throws IOException, InterruptedException {
 
-  String[] cols = value.toString().split(",");
 
-		pq.add(new WordAndCount(new Text(cols[7]), new IntWritable(1)) );
+		int count = Integer.parseInt(value.toString());
+
+		pq.add(new WordAndCount(new Text(key), new IntWritable(count)) );
 
 		if (pq.size() > 10) {
 			pq.poll();
